@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'mononoki regular';
+  src: url('../assets/mononoki-Regular\ Nerd\ Font\ Complete.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'mononoki regular';
+  font-size: 16px;
+  line-height: 0.8;
+}
