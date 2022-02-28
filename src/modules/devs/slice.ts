@@ -9,7 +9,9 @@ export const developersSlice = createSlice({
   initialState: Adapter.getInitialState,
 
   reducers: {
-    setData(state, action) {
+    setData(state, action:PayloadAction<IDeveloper[]>) {
+      console.log(action.payload);
+      
       Adapter.setAll(state, action.payload);
     },
 
