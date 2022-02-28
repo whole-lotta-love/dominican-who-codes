@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://res.cloudinary.com/dmfac7zfe/image/upload/v1645031139/icons/venti_expectant.png" width="220" alt="venti expectant" />
-</p>
-
 ## Description
 
 Can you help me occupy my brain?\
