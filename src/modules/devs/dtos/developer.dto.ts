@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString, IsUrl } from 'class-validator';
 export interface IDeveloper {
   name: string;
   initials: string;
-  image?: URL;
+  image?: string;
   summary: string;
   linkedin?: string;
   github?: string;
@@ -23,8 +23,8 @@ export default class Developer implements IDeveloper {
   @IsNotEmpty()
   readonly summary: string;
 
-  @IsUrl()
-  readonly image?: URL;
+  @IsString()
+  readonly image?: string;
 
   @IsString()
   readonly linkedin?: string;

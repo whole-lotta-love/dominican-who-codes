@@ -1,25 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IDeveloper } from './dtos/developer.dto';
+import Adapter from './actions/adapter';
 
 export type DevelopersState = IDeveloper;
 
-const initialState: DevelopersState = {
-  name: 'john doe',
-  initials: 'JD',
-  summary: 'developer',
-};
-
 export const developersSlice = createSlice({
   name: 'developers',
-  initialState,
+  initialState: Adapter.getInitialState,
 
   reducers: {
-    setDeveloperData: (state, action: PayloadAction<DevelopersState>) => {
-      state = action.payload;
+    setData(state, action) {
+      Adapter.setAll(state, action.payload);
     },
+
+    addOne: Adapter.addOne,
   },
 });
 
-export const { setDeveloperData } = developersSlice.actions;
+export const { setData, addOne } = developersSlice.actions;
 
 export default developersSlice;
