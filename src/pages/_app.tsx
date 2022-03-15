@@ -1,12 +1,16 @@
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
-import '@src/common/styles/globals.css';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '@src/components/Style/global.styles';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <ThemeProvider theme={{ bg: '#20232a' }}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Provider>
   );
 }
