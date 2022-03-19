@@ -4,6 +4,8 @@ import { useAppDipatch, useAppSelecto } from '@src/hooks/store';
 import type { NextPage } from 'next';
 import { developersActions } from '@src/store/developer';
 import { IDeveloperProfile } from '@src/store/developer/models/profile.entity';
+import DevCard from '../components/DevCard/index';
+import Layout from '@src/components/layout';
 
 type initialProps = {
   developers: {
@@ -19,7 +21,16 @@ const Home: NextPage<initialProps> = ({ developers }) => {
     dispatch(developersActions.setupData(developers.profiles));
   }, [dispatch, developers.profiles]);
 
-  return <></>;
+  return (
+    <Layout>
+      <div>
+        {devProfiles.ids.map((id) => {
+          const dev = devProfiles.entities[id];
+          return <DevCard name={dev.name} img={dev.image} key={id} />;
+        })}
+      </div>
+    </Layout>
+  );
 };
 
 Home.getInitialProps = async (ctx): Promise<initialProps> => {
