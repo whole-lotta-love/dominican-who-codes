@@ -4,7 +4,7 @@ import { useAppDipatch, useAppSelecto } from '@src/hooks/store';
 import type { NextPage } from 'next';
 import { developersActions } from '@src/store/developer';
 import { IDeveloperProfile } from '@src/store/developer/models/profile.entity';
-import DevCard from '../components/DevCard/index';
+import DevCard from '../components/Developers/index';
 import Layout from '@src/components/layout';
 
 type initialProps = {
