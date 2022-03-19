@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle<any>`
+export interface Theme {
+  bg0: string;
+  bg1: string;
+  fg0: string;
+  solid: string;
+  main: string;
+}
+
+export default createGlobalStyle<{ theme: Theme }>`
   @font-face {
     font-family: 'mononoki regular';
     src: url('static/fonts/Mononoki Regular.ttf') format('truetype');
@@ -16,8 +24,9 @@ export default createGlobalStyle<any>`
   html,
   body {
     font-family: 'mononoki regular';
-    font-size: 16px;
+    font-size: 18px;
     line-height: 0.8;
-    background-color: ${(props) => props.theme.bg};
+    background-color: ${(props) => props.theme.bg0};
+    color: ${(props) => props.theme.fg0};
   }
 `;
