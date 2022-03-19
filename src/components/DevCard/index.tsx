@@ -1,22 +1,37 @@
 import { FunctionComponent, ReactElement } from 'react';
+import { Card, Description, Skills, Title } from './Card.styled';
+import { IDeveloperProfile } from '@src/store/developer/models/profile.entity';
 import Image from 'next/image';
 
 interface DeveloperProps {
-  name: string;
-  img: string;
+  profile: IDeveloperProfile;
 }
 
-const Developer: FunctionComponent<DeveloperProps> = (props): ReactElement => {
-  console.log(props.img);
+const Developer: FunctionComponent<DeveloperProps> = ({
+  profile,
+}): ReactElement => {
   return (
-    <div>
+    <Card>
+      <Title bold>{profile.summary}</Title>
+      <Skills>
+        {profile.skills.map((skill, key) => (
+          <span key={key}>{skill}</span>
+        ))}
+      </Skills>
       <figure>
-        <Image src={props.img} alt={props.name} width="240" height="240" />
+        <Image
+          src={profile.image}
+          alt={profile.name}
+          layout="responsive"
+          height={200}
+          width={200}
+        />
       </figure>
       <div>
-        <span>{props.name}</span>
+        <Title>{profile.name}</Title>
+        <Description>description here!</Description>
       </div>
-    </div>
+    </Card>
   );
 };
 export default Developer;

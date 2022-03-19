@@ -25,8 +25,8 @@ const Home: NextPage<initialProps> = ({ developers }) => {
     <Layout>
       <div>
         {devProfiles.ids.map((id) => {
-          const dev = devProfiles.entities[id];
-          return <DevCard name={dev.name} img={dev.image} key={id} />;
+          const profile = devProfiles.entities[id];
+          return <DevCard key={id} profile={profile} />;
         })}
       </div>
     </Layout>
