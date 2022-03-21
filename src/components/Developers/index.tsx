@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactElement } from 'react';
 import { IDeveloperProfile } from '@src/store/developer/models/profile.entity';
+import { Divider } from '../Style/divider.styles';
 import CardComponent from './Card/Card';
 import ImageComponent from './Image/Image';
 import TitleComponent from './Title/Title';
 import ContentComponent from './Content/Content';
 import Skills from './Skills/Skills';
-import { Divider } from '../Style/divider.styles';
 
 interface DeveloperProps {
   profile: IDeveloperProfile;
